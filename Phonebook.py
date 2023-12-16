@@ -1,6 +1,11 @@
 import json
 phonebook = {}
-
+print("Список доступных команд:\n\
+    /load - загрузить телефонный справочник\n\
+    /save - сохранить телефонный справочник\n\
+    /add - добавить контакт\n\
+    /all - посмотреть все контакты\n\
+    /exit - выход")
 
 
 def save():
@@ -33,14 +38,10 @@ while True:
         email = input("Введите почту: ")
         birthday = input("Введите день рождения: ")
         phonebook[contact] = {"phones": phones}
-        print(phonebook)
         if email != "":
             phonebook[contact] = {"email": email}
-            print(phonebook)
         if birthday != "":
             phonebook[contact] = {"birthday": birthday}
-            print(phonebook)
-        print(phonebook)
         save()
         print("Контакт добавлен")
     elif command == "/save":
@@ -51,10 +52,16 @@ while True:
         print("Телефонная книга загружена")
     elif command == "/all":
         print_book()
+    elif command=="/exit":
+        save()
+        print("Вы вышли из телефонного справочника")
+        break
+    else:
+        print("Введена несуществующая команда, попробуйте еще раз")
 
 
-print(phonebook["Дядя Ваня"])
-print(phonebook["Дядя Ваня"]["phones"])
-print(phonebook["Дядя Ваня"]["phones"][0])
-for name, values in phonebook.items():
-    print(name, values)
+# print(phonebook["Дядя Ваня"])
+# print(phonebook["Дядя Ваня"]["phones"])
+# print(phonebook["Дядя Ваня"]["phones"][0])
+# for name, values in phonebook.items():
+#     print(name, values)
